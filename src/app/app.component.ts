@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+import { range } from './range'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'random';
+  range: (count: number) => unknown[] = range
+  title = 'random'
+  showAll = false
+
+  show(i: number): boolean {
+    return i % 2 === 0 || this.showAll
+  }
+  toggle(): void {
+    this.showAll = !this.showAll
+  }
 }
